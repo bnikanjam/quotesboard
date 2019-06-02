@@ -13,13 +13,14 @@
     </thead>
     <tbody>
         <!-- for class based views rename this queryset to quote_list -->
-        {% for quote in quotes %}
+        {% for quote in app %}
         <tr>
           <td><a href="{% url "app:show_one" quote.id %}">{{ quote.quote_txt }}</a></td>
           <td>{{ quote.author }}</td>
-          <td>{{ quote.added|timesince }} ago</td>
-          <td><a class="mui-bDeleted mui-btn--small mui-btn--flat mui-btn--primary" href="{% url "quotes:quote_edit" quote.id %}">Edit</a></td>
-          <td><a class="mui-btn mui-btn--small mui-btn--flat mui-btn--danger" href="{% url "quotes:quote_delete" quote.id %}">Delete</a></td>
+          <td>{{ quote.date_added|timesince }} ago</td>
+          <td>{{ quote.date_edited|timesince }} ago</td>
+          <td><a class="mui-bDeleted mui-btn--small mui-btn--flat mui-btn--primary" href="{% url "app:edit" quote.id %}">Edit</a></td>
+          <td><a class="mui-btn mui-btn--small mui-btn--flat mui-btn--danger" href="{% url "app:drop" quote.id %}">Delete</a></td>
         </tr>
         {% endfor %}
     </tbody>
