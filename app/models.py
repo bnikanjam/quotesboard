@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Quotes(models.Model):
+class Quote(models.Model):
     quote_txt = models.TextField()
     quote_img = models.URLField(blank=True, null=True)
     author = models.CharField(max_length=50, default='Anonymous', null=True)
@@ -12,5 +12,5 @@ class Quotes(models.Model):
     def __str__(self):
         return f'"{self.quote_txt}" by -{self.author}-'
 
-    class Meta():
+    class Meta:
         ordering = ['-date_added']

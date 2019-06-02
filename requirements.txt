@@ -2,3 +2,5 @@ django
 
 #  PostgreSQL adapter for the Python
 psycopg2-binary
+
+selenium
