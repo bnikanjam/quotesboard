@@ -9,6 +9,4 @@ class QuoteForm(ModelForm):
         fields = ['quote_txt',
                   'quote_img',
                   'author',
-                  'source',
-        ]
-
+                  'source']
