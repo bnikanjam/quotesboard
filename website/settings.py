@@ -110,8 +110,8 @@ STATICFILES_DIRS = (
 
 # Django-registration
 ACCOUNT_ACTIVATION_DAYS = 7  # One-week activation window
-LOGOUT_REDIRECT_URL = 'show_all'
-LOGIN_REDIRECT_URL = 'show_all'
+LOGOUT_REDIRECT_URL = 'app:show_all'
+LOGIN_REDIRECT_URL = 'app:show_all'
 
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_PORT = 587
