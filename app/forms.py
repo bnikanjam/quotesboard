@@ -6,7 +6,4 @@ from .models import Quote
 class QuoteForm(ModelForm):
     class Meta:
         model = Quote
-        fields = ['quote_txt',
-                  'quote_img',
-                  'author',
-                  'source']
+        exclude = ['user',]

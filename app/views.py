@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 from .models import Quote
 from .forms import QuoteForm
@@ -18,31 +18,40 @@ def show_one(request, pk):
     return render(request, 'app/show_one.html', {'quote': one_quote})
 
 
+@login_required()
 def new(request):
     form = QuoteForm(request.POST or None)
 
     if form.is_valid():
+        form = form.save(commit=False)
+        form.user = request.user
         form.save()
+
         messages.success(request, 'One quote just got added')
         return redirect('app:show_all')
     else:
         return render(request, 'app/quote_form.html', {'form': form})
 
 
+@login_required()
 def edit(request, pk):
-    to_edit = get_object_or_404(Quote, pk=pk)
+    to_edit = get_object_or_404(Quote, pk=pk, user=request.user)
     form = QuoteForm(request.POST or None, instance=to_edit)
 
     if form.is_valid():
+        form = form.save(commit=False)
+        form.user = request.user
         form.save()
+
         messages.success(request, f'Updated')
         return redirect('app:show_all')
     else:
         return render(request, 'app/quote_form.html', {'form': form})
 
 
+@login_required()
 def drop(request, pk):
-    to_drop = get_object_or_404(Quote, pk=pk)
+    to_drop = get_object_or_404(Quote, pk=pk, user=request.user)
 
     if request.method == 'POST':
         to_drop.delete()

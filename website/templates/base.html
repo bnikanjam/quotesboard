@@ -20,11 +20,15 @@
       <div class="mui-container">
         <table>
           <tr class="mui--appbar-height">
-            <td class="mui--text-title"><a id="pageTitle" href="{% url "app:show_all" %}">My Favorite Quotes</a></td>
+            <td class="mui--text-title"><a id="pageTitle" href="{% url "app:show_all" %}">Quoteboard</a></td>
             <td class="mui--text-right">
               <ul class="mui-list--inline mui--text-body2">
                 <li><a href="#">About</a></li>
-                <li><a href="#">Login</a></li>
+                  {% if request.user.is_authenticated %}
+                      <li>Hello {{ request.user.username }}, <a href="{% url 'logout' %}">Logout</a></li>
+                  {% else %}
+                      <li><a href="{% url 'login' %}">Login to add quotes</a></li>
+                  {% endif  %}
               </ul>
             </td>
           </tr>
