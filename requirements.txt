@@ -4,9 +4,11 @@ django-registration
 #PostgreSQL DB adapter for Python
 psycopg2-binary
 
+#
+requests
+
 #For Linting and unit testing.
 selenium
 flake8
 pytest
 pytest-cov
-

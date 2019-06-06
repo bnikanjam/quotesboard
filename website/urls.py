@@ -5,5 +5,5 @@ urlpatterns = [
     path('', include('app.urls')),
     path(r'accounts/', include('django_registration.backends.activation.urls')),
     path(r'accounts/', include('django.contrib.auth.urls')),
-    path('admin/', admin.site.urls),
+    path('darposht/', admin.site.urls),
 ]

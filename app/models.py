@@ -3,7 +3,7 @@ from django.db import models
 
 
 class Quote(models.Model):
-    quote_txt = models.TextField()
+    quote_txt = models.TextField(unique=True)
     quote_img = models.URLField(blank=True, null=True)
     author = models.CharField(max_length=50, default='Anonymous', null=True)
     source = models.URLField(blank=True, null=True)
