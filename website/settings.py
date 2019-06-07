@@ -1,4 +1,5 @@
 import os
+import rest_framework
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -22,7 +23,11 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'django_registration',
 
+    'rest_framework',
+
+    # project apps
     'app',
+    'api',
 ]
 
 MIDDLEWARE = [

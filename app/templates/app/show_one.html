@@ -13,7 +13,14 @@
   <div class="mui-container">
   {% if request.user == quote.user %}
           <a class="mui-btn mui-btn--primary" href="{% url "app:edit" quote.id %}">Edit</a>
+          <a class="mui-btn mui-btn--primary" href="{% url "app:drop" quote.id %}">Delete</a>
   {% endif %}
+
+  <!-- {% if request.user == Quotes%}
+  <a class="mui-btn mui-btn--primary" href="{% url "app:edit" quote.id %}">Edit</a>
+  <a class="mui-btn mui-btn--primary" href="{% url "app:drop" quote.id %}">Delete</a> -->
+{% endif %}
+
       <a class="mui-btn mui-btn--raised" href="{% url "app:show_all" %}">Go to Home Page</a>
   </div>
 
